@@ -3,18 +3,20 @@ import {
   DELETE_CONTACT,
   ADD_CONTACT,
   UPDATE_CONTACT,
+  GET_CONTACT,
 } from "../actions/types";
-import uuid from "react-uuid";
+// import uuid from "react-uuid";
 
 const initialState = {
   contacts: [
-    {
-      id: uuid(),
-      name: "Mahesh Soni",
-      email: "sms@gmail.com",
-      phone: "8980829961",
-    },
+    // {
+    //   id: uuid(),
+    //   name: "Mahesh Soni",
+    //   email: "sms@gmail.com",
+    //   phone: "8980829961",
+    // },
   ],
+  contact: {},
 };
 
 export default function (state = initialState, action) {
@@ -22,6 +24,12 @@ export default function (state = initialState, action) {
     case GET_CONTACTS:
       return {
         ...state,
+        contacts: action.payload,
+      };
+    case GET_CONTACT:
+      return {
+        ...state,
+        contact: action.payload,
       };
     case DELETE_CONTACT:
       return {
